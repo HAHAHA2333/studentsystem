@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间必须和相对应的mapper接口路径相对应-->
+<mapper namespace="com.example.demo.mapper.getAllMapper">
+	<!-- id名字必须要与mapper接口的对应方法名一致-->
+	<select id="getall"  resultType="com.example.demo.domain.student">
+select  * from  student
+	</select>
+
+
+</mapper>

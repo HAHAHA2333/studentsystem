@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>getall</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.css">
+    <!--<link  href="../static/asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.css}" rel="stylesheet">
+    <script  th:src="@{/webjars/jquery/3.0.0/jquery.js}" ></script>
+    <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.js}" ></script>-->
+
+</head>
+<body>
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>sex</th>
+        <th>achievement</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="student : ${all.list}">
+        <td th:text="${student.id}">id</td>
+        <td th:text="${student.studentname}">name</td>
+        <td th:text="${student.sex}">sex</td>
+        <td th:text="${student.achievement}">achievement</td>
+    </tr>
+    </tbody>
+</table>
+<nav aria-label="Page navigation">
+    <ul class="pager">
+        <!--下一页-->
+        <!--        如果为最后一页也没有a标签-->
+
+
+    </ul>
+</nav>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+        <li class="page-item "><a class="page-link" th:href="@{/index/getall}">首页</a></li>
+        <th:block th:if="${all.pageNum==1}">
+            <li class="page-item "><a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a></li>
+        </th:block>
+        <th:block th:if="${all.pageNum>1}">
+            <li class="page-item "> <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/index/getall(pageNum=${all.pageNum-1})}">
+                <span class="">上一页</span></a></li>
+        </th:block>
+        </li>
+        <th:block th:if="${all.pageNum==all.pages}">
+            <li class="page-item">
+                <a class="page-link" href="#">下一页</a>
+            </li>
+        </th:block>
+        <th:block th:if="${all.pageNum<all.pages}">
+            <li class="page-item">
+                <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/index/getall(pageNum=${all.pageNum+1})}">
+                下一页
+            </a></li>
+        </th:block>
+
+        <li class="page-item">
+            <a class="page-link" th:href="@{/index/getall(pageNum=${all.pages})}">
+            <!--  <li><a href="/getall(pageNum=?${pageInfo.nextPage}:${pageInfo.pages})">下一页</a></li>-->
+            <span class="">尾页</span>
+        </a></li>
+    </ul>
+</nav>
+</body>
+</html>
