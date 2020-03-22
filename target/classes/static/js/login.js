@@ -61,7 +61,6 @@ $(document).ready(function() {
 
 	$('#reg').click(function() {
 
-
 		if ($('#user').val() == "") {
             $('#user').focus().css({
                 border: "1px solid red",
