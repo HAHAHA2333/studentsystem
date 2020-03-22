@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间必须和相对应的mapper接口路径相对应-->
+<mapper namespace="com.example.demo.mapper.TeacherMapper">
+    <select id="findByone" resultType="com.example.demo.domain.Teacher" parameterType="com.example.demo.domain.Admin">
+        select * from teacher where teacherNo =#{teacherNo} AND  teacherName = #{teacherName}
+    </select>
+
+
+
+</mapper>
