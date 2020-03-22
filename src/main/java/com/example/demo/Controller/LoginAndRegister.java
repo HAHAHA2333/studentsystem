@@ -78,7 +78,7 @@ public class LoginAndRegister {
         else{
             adminDao.register(admin);
             map.put("msg","注册成功请重新登录");
-            return "redirect:/lAndRview";
+            return "LoginAndRigister/index";
         }
     }
 
