@@ -72,33 +72,14 @@ public class LoginAndRegister {
         Admin check = adminDao.check(admin);
         if(check !=null ){
             System.out.println("你已经注册！"+check.getTeacherName());
-            map.put("msg","工号"+check.getTeacherNo()+"你已近注册");
+            map.put("msg","工号"+check.getTeacherNo()+"你已经注册");
             return "LoginAndRigister/index";
         }
-
-
-        //判断此老师是否存在教务人员中(存在就注册)
-        Teacher teacher = teacherDao.findByone(admin);
-        if(teacher !=null){
-            //System.out.println("老师存在");
-            //可以注册
-                adminDao.register(admin);
-
-
-
+        else{
+            adminDao.register(admin);
+            map.put("msg","注册成功请重新登录");
             return "redirect:/lAndRview";
-        }else{
-            map.put("msg","你不属于教务人员");
-            return "LoginAndRigister/index";
         }
-
-        //判断
-
-
-
-
-
-
     }
 
 

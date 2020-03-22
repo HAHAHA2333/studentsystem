@@ -3,7 +3,7 @@
 <!-- 命名空间必须和相对应的mapper接口路径相对应-->
 <mapper namespace="com.example.demo.mapper.AdminMapper">
     <select id="login" resultType="com.example.demo.domain.Admin" >
-          select * from admin where teacherNo =#{arg0} and password =#{arg1}
+          select * from admin where teacherNo =#{teacherNo} and password =#{password}
     </select>
 
 
