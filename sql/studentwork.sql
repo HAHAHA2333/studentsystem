@@ -133,3 +133,18 @@ CREATE TABLE `teacher` (
 -- ----------------------------
 -- Records of teacher
 -- ----------------------------
+-- ----------------------------
+-- Table structure for admin
+-- ----------------------------
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `teacherName` varchar(10) DEFAULT NULL,
+  `teacherNo` varchar(10) DEFAULT NULL,
+  `password` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of admin
+-- ----------------------------
+INSERT INTO `admin` VALUES ('test1', '12345', '123456');
+INSERT INTO `admin` VALUES ('qwer', '123456', '123456');
