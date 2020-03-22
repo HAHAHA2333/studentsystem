@@ -67,7 +67,7 @@ public class LoginAndRegister {
         String teacherName = admin.getTeacherName();
         String teacherNo = admin.getTeacherNo();
         String password = admin.getPassword();
-        System.out.println(teacherName+"========"+teacherNo+"======"+password);
+       System.out.println(teacherName+"========"+teacherNo+"======"+password);
         //判断此老师是否已注册
         Admin check = adminDao.check(admin);
         if(check !=null ){
