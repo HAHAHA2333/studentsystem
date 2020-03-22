@@ -358,7 +358,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584764760703</updated>
-      <workItem from="1584764777581" duration="39280000" />
+      <workItem from="1584764777581" duration="39367000" />
     </task>
     <task id="LOCAL-00001" summary="登录注册">
       <created>1584772323182</created>
@@ -388,11 +388,18 @@
       <option name="project" value="LOCAL" />
       <updated>1584859589272</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="主页登录注册3">
+      <created>1584859717171</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584859717171</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39280000" />
+    <option name="totallyTimeSpent" value="39367000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
