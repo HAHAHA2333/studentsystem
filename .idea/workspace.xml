@@ -1,30 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b330fff4-4071-4f4f-b701-8c1bf033cff4" name="Default" comment="主页登录注册3">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Dao/TeacherDao.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Dao/TeacherDaoImpl.java" />
+    <list default="true" id="b330fff4-4071-4f4f-b701-8c1bf033cff4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/LoginAndRegister.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/LoginAndRegister.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Dao/AdminDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Dao/AdminDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Dao/AdminDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Dao/AdminDaoImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/domain/Teacher.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/domain/Teacher.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/mapper/AdminMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/mapper/AdminMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/mapper/TeacherMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/mapper/TeacherMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AdminDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AdminDao.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TeacherDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TeacherDao.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/login.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/login.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/LoginAndRigister/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/LoginAndRigister/index.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/LoginAndRegister.class" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/LoginAndRegister.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Dao/AdminDao.class" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Dao/AdminDao.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Dao/AdminDaoImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Dao/AdminDaoImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/domain/Teacher.class" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/domain/Teacher.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/mapper/AdminMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/mapper/AdminMapper.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/mapper/TeacherMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/mapper/TeacherMapper.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/AdminDao.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/AdminDao.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TeacherDao.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/TeacherDao.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/login.js" afterPath="$PROJECT_DIR$/target/classes/static/js/login.js" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/LoginAndRigister/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/LoginAndRigister/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -105,8 +83,8 @@
       <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="793">
+              <caret line="81" column="64" lean-forward="false" selection-start-line="81" selection-start-column="64" selection-end-line="81" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -380,7 +358,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584764760703</updated>
-      <workItem from="1584764777581" duration="39145000" />
+      <workItem from="1584764777581" duration="39280000" />
     </task>
     <task id="LOCAL-00001" summary="登录注册">
       <created>1584772323182</created>
@@ -403,11 +381,18 @@
       <option name="project" value="LOCAL" />
       <updated>1584813730643</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="主页登录注册3">
+      <created>1584859589272</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1584859589272</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39145000" />
+    <option name="totallyTimeSpent" value="39280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -779,8 +764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="793">
+          <caret line="81" column="64" lean-forward="false" selection-start-line="81" selection-start-column="64" selection-end-line="81" selection-end-column="64" />
           <folding />
         </state>
       </provider>
