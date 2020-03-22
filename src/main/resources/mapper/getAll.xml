@@ -22,20 +22,20 @@
 	</resultMap>
 	<!-- id名字必须要与mapper接口的对应方法名一致-->
 	<select id="getall"  resultMap="queryStudent">
-     	elect  s.*,d.* from  student s
-     	oin dept d on
-     	.id = d.id
-     	rder by
-     	s.achievement desc,
-     	s.chinese desc,
-     	s.maths desc
+select  s.*,d.* from  student s
+join dept d on
+s.id = d.id
+order by
+ s.achievement desc,
+ s.chinese desc,
+ s.maths desc
 	</select>
 	<select id="queryBy" parameterType="Integer"  resultMap="queryStudent">
-		select  s.*,d.* from  student s
-		join dept d on
-		s.id = d.id
-		where s.achievement >=#{achievement} and s.chinese >=#{chinese}  and s.maths >=#{maths} and s.engllish >=#{english}
-		order by s.achievement desc,s.chinese desc,s.maths desc
+select  s.*,d.* from  student s
+join dept d on
+s.id = d.id
+where s.achievement >=#{achievement} and s.chinese >=#{chinese}  and s.maths >=#{maths} and s.engllish >=#{english}
+order by s.achievement desc,s.chinese desc,s.maths desc
 	</select>
 
 

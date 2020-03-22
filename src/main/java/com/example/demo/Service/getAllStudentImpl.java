@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class  getAllStudentImpl implements getAllStudent {
+public class getAllStudentImpl implements getAllStudent {
     @Autowired
     getAllMapper getallmapper;
     @Override

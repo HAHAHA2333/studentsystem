@@ -5,4 +5,7 @@
     <select id="findByone" resultType="com.example.demo.domain.Teacher" parameterType="com.example.demo.domain.Admin">
         select * from teacher where teacherNo =#{teacherNo} AND  teacherName = #{teacherName}
     </select>
+
+
+
 </mapper>
