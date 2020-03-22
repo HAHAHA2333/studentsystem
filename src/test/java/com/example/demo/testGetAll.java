@@ -23,7 +23,9 @@ public class testGetAll {
     public void getAll() {
         List<student> list = getallmapper.getall();
         for (student s: list) {
-            System.out.println(s.getId()+""+s.getStudentname()+""+s.getAchievement()+""+s.getMaths()+""+s.getEngllish());
+            System.out.println(s.getId()+""+s.getStudentname()+
+                    ""+s.getAchievement()+""+s.getMaths()+""+
+                    s.getEngllish()+s.getDept().getDeptName());
         }
     }
 }

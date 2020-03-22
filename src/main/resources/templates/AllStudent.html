@@ -10,6 +10,7 @@
     <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.js}" ></script>-->
 
 </head>
+
 <body>
 <div class="head">
 
@@ -85,18 +86,33 @@
     </ul>
 </nav>
 <div style="background-color: aliceblue;width: 20%;height: 320px;margin-left: 40%" >
-<form action="/index/queryBy" method="get">
-        <label for="achievement">总分标准</label>
-        <input type="text" class="form-control" id="achievement" name="achievement" aria-describedby="emailHelp">
+<form action="/index/queryBy" method="get" onsubmit="return check()">
+        <label for="achievement">成绩标准</label>
+        <input type="text" class="form-control" id="achievement" name="achievement" placeholder="不输入则默认为150分" aria-describedby="emailHelp">
 
         <label>语文成绩标准</label>
-        <input type="text" class="form-control" id="chinese" name="chinese">
+        <input type="text" class="form-control" id="chinese" placeholder="不输入则默认为50分" name="chinese">
 
         <label >数学成绩标准</label>
-        <input type="text" class="form-control" id="maths" name="maths">
+        <input type="text" class="form-control" id="maths" placeholder="不输入则默认为50分" name="maths">
         <label >英语成绩标准</label>
-        <input type="text" class="form-control" id="english" name="english">
-    <button type="submit" class="btn btn-primary">查找</button>
+        <input type="text" class="form-control" id="english" placeholder="不输入则默认为50分" name="english">
+    <button type="submit"  class="btn btn-primary">查找</button>
 </form></div>
 </body>
+<script type="text/javascript">
+    function check() {
+        var achievement = document.getElementById("achievement").value;
+        var chinese = document.getElementById("chinese").value;
+        var maths = document.getElementById("maths").value;
+        var english = document.getElementById("english").value;
+        console.log("dsadasd"+achievement);
+        if(achievement=="" || achievement>300 || chinese=="" || chinese>100 || maths=="" || maths>100 || english=="" || english>100){
+            console.log("请注意参数值范围"+achievement+chinese+maths+english);
+            alert("输入有误，请注意参数范围");
+            return false;
+        }
+    }
+
+</script>
 </html>
