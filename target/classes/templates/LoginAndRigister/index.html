@@ -67,7 +67,7 @@
 		<div class="qlogin" id="qlogin" style="display: none;">
 			<div class="web_login">
 				<form name="form2" id="regUser" accept-charset="utf-8"
-					action="doAction.php?act=reg" method="post">
+				  	th:action="@{/regist}"  action="" method="post">
 					<input type="hidden" name="to" value="reg" /> <input type="hidden"
 						name="did" value="0" />
 					<ul class="reg_form" id="reg-ul">
@@ -79,9 +79,9 @@
 							</div>
 						</li>
 
-						<li><label for="user" class="input-tips2">工号：</label>
+						<li><label for="no" class="input-tips2">工号：</label>
 							<div class="inputOuter2">
-								<input type="text" id="No" name="teacherNo" maxlength="16"
+								<input type="text" id="no" name="teacherNo" maxlength="16"
 									   class="inputstyle2" />
 							</div>
 						</li>

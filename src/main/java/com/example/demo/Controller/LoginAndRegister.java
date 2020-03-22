@@ -2,7 +2,9 @@ package com.example.demo.Controller;
 
 import com.example.demo.Dao.AdminDao;
 import com.example.demo.Dao.AdminDaoImpl;
+import com.example.demo.Dao.TeacherDao;
 import com.example.demo.domain.Admin;
+import com.example.demo.domain.Teacher;
 import com.example.demo.mapper.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,10 @@ public class LoginAndRegister {
 
     @Autowired
     private AdminDao adminDao;
+
+
+    @Autowired
+    private TeacherDao teacherDao;
 
     //管理员注册和登录页面
     @GetMapping("/lAndRview")
@@ -54,16 +60,37 @@ public class LoginAndRegister {
         return "redirect:/lAndRview";
       }
 
+
     //注册操作
     @PostMapping("/regist")
     public String regist(Admin admin,Map<String,Object> map){
         String teacherName = admin.getTeacherName();
         String teacherNo = admin.getTeacherNo();
-        //判断此老师是否存在
+        String password = admin.getPassword();
+        System.out.println(teacherName+"========"+teacherNo+"======"+password);
+        //判断此老师是否已注册
+        Admin check = adminDao.check(admin);
+        if(check !=null ){
+            System.out.println("你已经注册！"+check.getTeacherName());
+            map.put("msg","工号"+check.getTeacherNo()+"你已近注册");
+            return "LoginAndRigister/index";
+        }
+
+
+        //判断此老师是否存在教务人员中(存在就注册)
+        Teacher teacher = teacherDao.findByone(admin);
+        if(teacher !=null){
+            //System.out.println("老师存在");
+            //可以注册
+                adminDao.register(admin);
 
 
 
-
+            return "redirect:/lAndRview";
+        }else{
+            map.put("msg","你不属于教务人员");
+            return "LoginAndRigister/index";
+        }
 
         //判断
 
@@ -71,7 +98,7 @@ public class LoginAndRegister {
 
 
 
-        return "/lAndRview";
+
     }
 
 

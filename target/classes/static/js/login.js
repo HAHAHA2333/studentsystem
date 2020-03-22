@@ -57,47 +57,31 @@ function getParam(pname) {
 var reMethod = "GET",
 	pwdmin = 6;
 $(document).ready(function() {
-	$('#user').blur(function(){
-		$.ajax({
-			type: reMethod,
-			url: "doAction.php?act=checkUser",
-			data: "username=" + $("#user").val(),
-			dataType: 'html',
-			success: function(result) {
-				if (result==1) {
-					$('#user').focus().css({
-						border: "1px solid red",
-						boxShadow: "0 0 2px red"
-					});
-					$("#userCue").html('用户名已存在!');
-					return false;
-				} else {
-					$('#user').css({
-						border: "1px solid #D7D7D7",
-						boxShadow: "none"
-					});
-				}
-			}
-		});
-	});
+	//----------------------------------
 
 	$('#reg').click(function() {
+
+
 		if ($('#user').val() == "") {
-			$('#user').focus().css({
-				border: "1px solid red",
-				boxShadow: "0 0 2px red"
-			});
-			$('#userCue').html("<font color='red'><b>×用户名不能为空</b></font>");
-			return false;
-		}
-		if ($('#user').val().length < 4 || $('#user').val().length > 16) {
-			$('#user').focus().css({
-				border: "1px solid red",
-				boxShadow: "0 0 2px red"
-			});
-			$('#userCue').html("<font color='red'><b>×用户名位4-16字符</b></font>");
-			return false;
-		}
+            $('#user').focus().css({
+                border: "1px solid red",
+                boxShadow: "0 0 2px red"
+            });
+            $('#userCue').html("<font color='red'><b>用户名不能为空</b></font>");
+            return false;
+        }
+
+
+
+
+		// if ($('#user').val().length < 4 || $('#user').val().length > 16) {
+		// 	$('#user').focus().css({
+		// 		border: "1px solid red",
+		// 		boxShadow: "0 0 2px red"
+		// 	});
+		// 	$('#userCue').html("<font color='red'><b>×用户名位4-16字符</b></font>");
+		// 	return false;
+		// }
 		if ($('#passwd').val().length < pwdmin) {
 			$('#passwd').focus();
 			$('#userCue').html("<font color='red'><b>×密码不能小于" + pwdmin + "位</b></font>");

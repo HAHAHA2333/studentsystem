@@ -7,4 +7,13 @@
     </select>
 
 
+    <select id="check" resultType="com.example.demo.domain.Admin" parameterType="com.example.demo.domain.Admin">
+        select * from admin where teacherNo =#{teacherNo}
+    </select>
+
+    <insert id="register" parameterType="com.example.demo.domain.Admin" >
+        INSERT  INTO admin VALUES (#{teacherName},#{teacherNo},#{password})
+    </insert>
+
+
 </mapper>

@@ -16,4 +16,15 @@ public class AdminDaoImpl implements AdminDao{
         Admin login = adminMapper.login(teacherNo, password);
         return login;
     }
+
+    @Override
+    public Admin check(Admin admin) {
+        Admin check = adminMapper.check(admin);
+        return check;
+    }
+
+    @Override
+    public void register(Admin admin) {
+            adminMapper.register(admin);
+    }
 }
