@@ -19,4 +19,12 @@ public class getAllStudentImpl implements getAllStudent {
         PageInfo<student> pageInfo = new PageInfo<student>(studentlist);
         return pageInfo;
     }
+
+    @Override
+    public PageInfo<student> queryBy(int pageNum, int pageSize,int achievement,int chinese,int maths,int english) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<student> studentlist = getallmapper.queryBy(achievement,chinese,maths,english);
+        PageInfo<student> pageInfo = new PageInfo<student>(studentlist);
+        return pageInfo;
+    }
 }

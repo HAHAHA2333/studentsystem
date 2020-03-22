@@ -12,6 +12,7 @@ public class student {
     private Integer maths;
     private Integer engllish;
     private Integer used;
+    private dept dept;
 
     public Integer getId() {
         return id;
@@ -101,5 +102,13 @@ public class student {
 
     public void setUsed(Integer used) {
         this.used = used;
+    }
+
+    public com.example.demo.domain.dept getDept() {
+        return dept;
+    }
+
+    public void setDept(com.example.demo.domain.dept dept) {
+        this.dept = dept;
     }
 }

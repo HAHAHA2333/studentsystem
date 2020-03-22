@@ -7,4 +7,5 @@ import java.util.List;
 @Mapper
 public interface getAllMapper {
     public List<student> getall();
+    public List<student> queryBy(int achievement,int chinese,int maths,int english);
 }

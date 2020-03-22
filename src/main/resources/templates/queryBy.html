@@ -4,18 +4,12 @@
     <meta charset="UTF-8">
     <title>getall</title>
     <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.css">
-    <link th:href="@{../css/query.css}" rel="stylesheet" type="text/css" />
     <!--<link  href="../static/asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.css}" rel="stylesheet">
     <script  th:src="@{/webjars/jquery/3.0.0/jquery.js}" ></script>
     <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.js}" ></script>-->
 
 </head>
 <body>
-<div class="head">
-
-    <img src="" th:src="@{/images/logo.jpg}" style="height: 100px;width: 100px; margin: 0; padding: 0;float: left">
-    <h3 class="tittle">太原师范学院高考录取系统</h3></div>
-<div style="background-color: aliceblue">
 <table class="table table-condensed">
     <thead>
     <tr>
@@ -44,7 +38,6 @@
     </tr>
     </tbody>
 </table>
-</div>
 <nav aria-label="Page navigation">
     <ul class="pager">
         <!--下一页-->
@@ -56,12 +49,12 @@
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
         <li class="page-item disabled">
-        <li class="page-item "><a class="page-link" th:href="@{/index/getall}">首页</a></li>
+        <li class="page-item "><a class="page-link" th:href="@{/index/queryBy(achievement=${achievement},chinese=${chinese},maths=${maths},english=${english})}">首页</a></li>
         <th:block th:if="${all.pageNum==1}">
             <li class="page-item "><a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a></li>
         </th:block>
         <th:block th:if="${all.pageNum>1}">
-            <li class="page-item "> <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/index/getall(pageNum=${all.pageNum-1})}">
+            <li class="page-item "> <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/index/queryBy(pageNum=${all.pageNum-1},achievement=${achievement},chinese=${chinese},maths=${maths},english=${english})}">
                 <span class="">上一页</span></a></li>
         </th:block>
         </li>
@@ -72,20 +65,23 @@
         </th:block>
         <th:block th:if="${all.pageNum<all.pages}">
             <li class="page-item">
-                <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/index/getall(pageNum=${all.pageNum+1})}">
+                <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/index/queryBy(pageNum=${all.pageNum+1},achievement=${achievement},chinese=${chinese},maths=${maths},english=${english})}">
                 下一页
             </a></li>
         </th:block>
 
         <li class="page-item">
-            <a class="page-link" th:href="@{/index/getall(pageNum=${all.pages})}">
+            <a class="page-link"
+               th:href="@{/index/queryBy(pageNum=${all.pages},achievement=${achievement},chinese=${chinese},maths=${maths},english=${english})}">
             <!--  <li><a href="/getall(pageNum=?${pageInfo.nextPage}:${pageInfo.pages})">下一页</a></li>-->
             <span class="">尾页</span>
+
         </a></li>
+
     </ul>
 </nav>
 <div style="background-color: aliceblue;width: 20%;height: 320px;margin-left: 40%" >
-<form action="/index/queryBy" method="get">
+    <form action="/index/queryBy" method="get">
         <label for="achievement">总分标准</label>
         <input type="text" class="form-control" id="achievement" name="achievement" aria-describedby="emailHelp">
 
@@ -96,7 +92,7 @@
         <input type="text" class="form-control" id="maths" name="maths">
         <label >英语成绩标准</label>
         <input type="text" class="form-control" id="english" name="english">
-    <button type="submit" class="btn btn-primary">查找</button>
-</form></div>
+        <button type="submit" class="btn btn-primary">查找</button>
+    </form></div>
 </body>
 </html>
