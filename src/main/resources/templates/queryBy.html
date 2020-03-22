@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>getall</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.css">
+    <!--<link  href="../static/asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.css}" rel="stylesheet">
+    <script  th:src="@{/webjars/jquery/3.0.0/jquery.js}" ></script>
+    <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.js}" ></script>-->
+
+</head>
+<body>
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>成绩</th>
+        <th>毕业学校</th>
+        <th>语文成绩</th>
+        <th>数学成绩</th>
+        <th>英语成绩</th>
+        <th>系别名称</th>
+        <th>专业</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="student : ${all.list}">
+        <td th:text="${student.studentname}">name</td>
+        <td th:text="${student.sex}">sex</td>
+        <td th:text="${student.achievement}">achievement</td>
+        <td th:text="${student.admissionschool}">admissionSchool</td>
+        <td th:text="${student.chinese}">chinese</td>
+        <td th:text="${student.maths}">maths</td>
+        <td th:text="${student.engllish}">engllish</td>
+        <td th:text="${student.dept.deptName}">deptName</td>
+        <td th:text="${student.dept.subjectCategory}">subjectCategory</td>
+    </tr>
+    </tbody>
+</table>
+<nav aria-label="Page navigation">
+    <ul class="pager">
+        <!--下一页-->
+        <!--        如果为最后一页也没有a标签-->
+
+
+    </ul>
+</nav>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+        <li class="page-item "><a class="page-link" th:href="@{/index/queryBy(achievement=${achievement},chinese=${chinese},maths=${maths},english=${english})}">首页</a></li>
+        <th:block th:if="${all.pageNum==1}">
+            <li class="page-item "><a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a></li>
+        </th:block>
+        <th:block th:if="${all.pageNum>1}">
+            <li class="page-item "> <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/index/queryBy(pageNum=${all.pageNum-1},achievement=${achievement},chinese=${chinese},maths=${maths},english=${english})}">
+                <span class="">上一页</span></a></li>
+        </th:block>
+        </li>
+        <th:block th:if="${all.pageNum==all.pages}">
+            <li class="page-item">
+                <a class="page-link" href="#">下一页</a>
+            </li>
+        </th:block>
+        <th:block th:if="${all.pageNum<all.pages}">
+            <li class="page-item">
+                <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/index/queryBy(pageNum=${all.pageNum+1},achievement=${achievement},chinese=${chinese},maths=${maths},english=${english})}">
+                下一页
+            </a></li>
+        </th:block>
+
+        <li class="page-item">
+            <a class="page-link"
+               th:href="@{/index/queryBy(pageNum=${all.pages},achievement=${achievement},chinese=${chinese},maths=${maths},english=${english})}">
+            <!--  <li><a href="/getall(pageNum=?${pageInfo.nextPage}:${pageInfo.pages})">下一页</a></li>-->
+            <span class="">尾页</span>
+
+        </a></li>
+
+    </ul>
+</nav>
+<div style="background-color: aliceblue;width: 20%;height: 320px;margin-left: 40%" >
+    <form action="/index/queryBy" method="get">
+        <label for="achievement">总分标准</label>
+        <input type="text" class="form-control" id="achievement" name="achievement" aria-describedby="emailHelp">
+
+        <label>语文成绩标准</label>
+        <input type="text" class="form-control" id="chinese" name="chinese">
+
+        <label >数学成绩标准</label>
+        <input type="text" class="form-control" id="maths" name="maths">
+        <label >英语成绩标准</label>
+        <input type="text" class="form-control" id="english" name="english">
+        <button type="submit" class="btn btn-primary">查找</button>
+    </form></div>
+</body>
+</html>

@@ -13,4 +13,12 @@
       <module name="demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
+    </option>
+  </component>
+>>>>>>> 06ff1b2040d257046d024b3a6cad1002fa787685
 </project>
