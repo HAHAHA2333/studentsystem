@@ -43,7 +43,7 @@ public class LoginAndRegister {
             session.setAttribute("teacherName",login.getTeacherName());
 
             //到时候改为查询所有学生的页面(现在是跳回首页)
-            return "index";
+            return "redirect:/index/queryBy";
 
         }else{
             map.put("msg","工号或密码错误");
@@ -81,9 +81,4 @@ public class LoginAndRegister {
             return "LoginAndRigister/index";
         }
     }
-
-
-
-
-
 }
