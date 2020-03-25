@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/index")
+@RequestMapping("/index")
 public class index {
     @Autowired
     testDao testdao;

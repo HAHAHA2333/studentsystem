@@ -15,7 +15,7 @@
 		<result column="engllish" property="engllish"/>
 		<result column="used" property="used"/>
 		<association property="dept" javaType="com.example.demo.domain.dept">
-			<id column="id" property="id"/>
+			<id column="id" property="deptid"/>
 			<result column="deptName" property="deptName"/>
 			<result column="subjectCategory" property="subjectCategory"/>
 		</association>
@@ -24,7 +24,7 @@
 	<select id="getall"  resultMap="queryStudent">
 select  s.*,d.* from  student s
 join dept d on
-s.id = d.id
+s.id = d.deptid
 order by
  s.achievement desc,
  s.chinese desc,
@@ -33,9 +33,20 @@ order by
 	<select id="queryBy" parameterType="Integer"  resultMap="queryStudent">
 select  s.*,d.* from  student s
 join dept d on
-s.id = d.id
+s.id = d.deptid
 where s.achievement >=#{achievement} and s.chinese >=#{chinese}  and s.maths >=#{maths} and s.engllish >=#{english}
 order by s.achievement desc,s.chinese desc,s.maths desc
+	</select>
+
+	<select id="getstu" resultMap="queryStudent">
+select  s.*,d.* from  student s
+join dept d on
+s.id = d.deptid
+where used=1
+order by
+s.achievement desc,
+s.chinese desc,
+s.maths desc
 	</select>
 
 

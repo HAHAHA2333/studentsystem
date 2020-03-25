@@ -11,7 +11,7 @@
         select * from admin where teacherNo =#{teacherNo}
     </select>
 
-    <insert id="register"  parameterType="com.example.demo.domain.Admin"   >
+    <insert id="register"  parameterType="com.example.demo.domain.Admin">
         INSERT  INTO admin VALUES (#{teacherName},#{teacherNo},#{password})
     </insert>
 

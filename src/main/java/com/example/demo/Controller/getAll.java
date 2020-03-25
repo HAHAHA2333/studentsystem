@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class getAll {
     @Autowired
     getAllStudent getallstudent;
-    @GetMapping("getall")
+    @GetMapping("getall")//查询全部学生
     public ModelAndView GetAll(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum){
     ModelAndView mav = new ModelAndView();
     PageInfo<student> s =getallstudent.getAllStudent(pageNum,3);
@@ -20,7 +20,7 @@ public class getAll {
     mav.addObject("all",s);
     return  mav;
     }
-    @GetMapping("queryBy")
+    @GetMapping("queryBy")//按照是选条件查询学生
     public ModelAndView queryBy(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum,
                                 @RequestParam(defaultValue = "150",value = "achievement")int achievement,
                                 @RequestParam(defaultValue = "50", value = "chinese") int chinese,
@@ -29,13 +29,13 @@ public class getAll {
         ModelAndView mav = new ModelAndView();
         PageInfo<student> s =getallstudent.queryBy(pageNum,3,achievement,chinese,maths,english);
         mav.setViewName("queryBy");
-        String queryparam="&achievemen="+achievement+"&chinese="+chinese+"&maths="+maths+"&english="+english;
         mav.addObject("achievement",achievement);
         mav.addObject("chinese",chinese);
         mav.addObject("maths",maths);
         mav.addObject("english",english);
         mav.addObject("all",s);
-
         return  mav;
     }
+
+
 }

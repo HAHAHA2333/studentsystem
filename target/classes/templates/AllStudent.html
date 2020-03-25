@@ -10,6 +10,7 @@
     <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.js}" ></script>-->
 
 </head>
+
 <body>
 <div class="head">
 
@@ -28,6 +29,7 @@
         <th>英语成绩</th>
         <th>系别名称</th>
         <th>专业</th>
+        <th>是否录取</th>
     </tr>
     </thead>
     <tbody>
@@ -41,10 +43,17 @@
         <td th:text="${student.engllish}">engllish</td>
         <td th:text="${student.dept.deptName}">deptName</td>
         <td th:text="${student.dept.subjectCategory}">subjectCategory</td>
+        <th:block th:if="${student.used}==1">
+        <td> 已录取</td>
+    </th:block>
+        <th:block th:if="${student.used}==0">
+        <td> 未录取</td>
+    </th:block>
     </tr>
     </tbody>
 </table>
 </div>
+<div   th:replace="common/left " :: #left></div>
 <nav aria-label="Page navigation">
     <ul class="pager">
         <!--下一页-->
@@ -82,21 +91,37 @@
             <!--  <li><a href="/getall(pageNum=?${pageInfo.nextPage}:${pageInfo.pages})">下一页</a></li>-->
             <span class="">尾页</span>
         </a></li>
+        <li><a class="badge badge-primary" th:href="@{/getAllexcel}">导出excel</a></li>
     </ul>
 </nav>
 <div style="background-color: aliceblue;width: 20%;height: 320px;margin-left: 40%" >
-<form action="/index/queryBy" method="get">
-        <label for="achievement">总分标准</label>
-        <input type="text" class="form-control" id="achievement" name="achievement" aria-describedby="emailHelp">
+<form action="/index/queryBy" method="get" onsubmit="return check()">
+        <label for="achievement">成绩标准</label>
+        <input type="text" class="form-control" id="achievement" name="achievement" placeholder="不输入则默认为150分" aria-describedby="emailHelp">
 
         <label>语文成绩标准</label>
-        <input type="text" class="form-control" id="chinese" name="chinese">
+        <input type="text" class="form-control" id="chinese" placeholder="不输入则默认为50分" name="chinese">
 
         <label >数学成绩标准</label>
-        <input type="text" class="form-control" id="maths" name="maths">
+        <input type="text" class="form-control" id="maths" placeholder="不输入则默认为50分" name="maths">
         <label >英语成绩标准</label>
-        <input type="text" class="form-control" id="english" name="english">
-    <button type="submit" class="btn btn-primary">查找</button>
+        <input type="text" class="form-control" id="english" placeholder="不输入则默认为50分" name="english">
+    <button type="submit"  class="btn btn-primary">查找</button>
 </form></div>
 </body>
+<script type="text/javascript">
+    function check() {
+        var achievement = document.getElementById("achievement").value;
+        var chinese = document.getElementById("chinese").value;
+        var maths = document.getElementById("maths").value;
+        var english = document.getElementById("english").value;
+        console.log("dsadasd"+achievement);
+        if( achievement>300 ||  chinese>100 || maths>100  || english>100){
+            console.log("请注意参数值范围"+achievement+chinese+maths+english);
+            alert("输入有误，请注意参数范围");
+            return false;
+        }
+    }
+
+</script>
 </html>

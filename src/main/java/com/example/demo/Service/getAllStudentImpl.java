@@ -27,4 +27,27 @@ public class getAllStudentImpl implements getAllStudent {
         PageInfo<student> pageInfo = new PageInfo<student>(studentlist);
         return pageInfo;
     }
+
+    //导出excel用
+    @Override
+    public List<student> getAll() {
+        List<student> getall = getallmapper.getall();
+        return getall;
+    }
+
+    @Override
+    public PageInfo<student> getstu(int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<student> getstu = getallmapper.getstu();
+        PageInfo<student> pageInfo = new PageInfo<student>(getstu);
+        return pageInfo;
+    }
+
+    @Override
+    public List<student> getstu() {
+        List<student> getstu = getallmapper.getstu();
+        return getstu;
+    }
+
+
 }

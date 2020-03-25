@@ -40,8 +40,9 @@ public class LoginAndRegister {
         Admin login = adminDao.login(teacherNo, password);
         if(login !=null){
          // System.out.println("登陆成功");
-            session.setAttribute("teacherName",login.getTeacherName());
-
+            String teacherName = login.getTeacherName();
+            session.setAttribute("teacherName",teacherName);
+            //System.out.println("aaaaaaaaaaa"+session.getAttribute("teacherName"));
             //到时候改为查询所有学生的页面(现在是跳回首页)
             return  "redirect:/index/getall";
 
@@ -98,10 +99,6 @@ public class LoginAndRegister {
             map.put("msg","你不属于教务人员");
             return "LoginAndRigister/index";
         }
-
-
-
-
 
 
 
