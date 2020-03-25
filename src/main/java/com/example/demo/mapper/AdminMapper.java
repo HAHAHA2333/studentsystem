@@ -12,7 +12,7 @@ public interface AdminMapper {
     public abstract  Admin check(Admin admin);
 
     //注册
-    public abstract  void register(Admin admin);
+    public abstract  int register(Admin admin);
 
 
 }

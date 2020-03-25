@@ -24,7 +24,9 @@ public class AdminDaoImpl implements AdminDao{
     }
 
     @Override
-    public void register(Admin admin) {
-            adminMapper.register(admin);
+    public int register(Admin admin) {
+        int register = adminMapper.register(admin);
+        return register;
     }
+
 }

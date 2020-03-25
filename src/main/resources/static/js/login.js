@@ -70,6 +70,15 @@ $(document).ready(function() {
             return false;
         }
 
+        if($('#no').val() ==""){
+			$('#no').focus().css({
+				border:"1px solid red",
+				boxShadow:"0 02px red"
+			});
+            $('#userCue').html("<font color='red'><b>工号不能为空</b></font>");
+            return false;
+		}
+
 
 
 

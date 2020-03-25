@@ -22,10 +22,10 @@ public class getAll {
     }
     @GetMapping("queryBy")
     public ModelAndView queryBy(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum,
-                                @RequestParam(value = "achievement")int achievement,
-                                @RequestParam(value = "chinese") int chinese,
-                                @RequestParam(value = "maths") int maths,
-                                @RequestParam(value = "english") int english){
+                                @RequestParam(defaultValue = "150",value = "achievement")int achievement,
+                                @RequestParam(defaultValue = "50", value = "chinese") int chinese,
+                                @RequestParam(defaultValue = "50",value = "maths") int maths,
+                                @RequestParam(defaultValue = "50",value = "english") int english){
         ModelAndView mav = new ModelAndView();
         PageInfo<student> s =getallstudent.queryBy(pageNum,3,achievement,chinese,maths,english);
         mav.setViewName("queryBy");

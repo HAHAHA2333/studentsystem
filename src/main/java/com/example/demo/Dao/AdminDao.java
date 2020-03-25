@@ -7,6 +7,6 @@ public interface AdminDao {
 
         public abstract  Admin check(Admin admin);
 
-        public abstract  void register(Admin admin);
+        public abstract int register(Admin admin);
 
 }

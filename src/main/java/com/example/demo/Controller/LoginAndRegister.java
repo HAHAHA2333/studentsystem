@@ -43,7 +43,7 @@ public class LoginAndRegister {
             session.setAttribute("teacherName",login.getTeacherName());
 
             //到时候改为查询所有学生的页面(现在是跳回首页)
-            return "index";
+            return  "redirect:/index/getall";
 
         }else{
             map.put("msg","工号或密码错误");
@@ -82,17 +82,24 @@ public class LoginAndRegister {
         if(teacher !=null){
             //System.out.println("老师存在");
             //可以注册
-                adminDao.register(admin);
+            int register = adminDao.register(admin);
+            if(register>0){
+                System.out.println("register:"+register);
+                return "redirect:/lAndRview";
+            }else{
+                System.out.println("register:"+register);
+                map.put("msg","注册失败亲联系管理源");
+                return "redirect:/lAndRview";
+            }
 
 
 
-            return "redirect:/lAndRview";
         }else{
             map.put("msg","你不属于教务人员");
             return "LoginAndRigister/index";
         }
 
-        //判断
+
 
 
 
