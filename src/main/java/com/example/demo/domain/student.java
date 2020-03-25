@@ -1,5 +1,9 @@
 package com.example.demo.domain;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class student {
     private Integer id;
     private String studentname;

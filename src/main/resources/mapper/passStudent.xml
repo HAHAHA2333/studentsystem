@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间必须和相对应的mapper接口路径相对应-->
+<mapper namespace="com.example.demo.mapper.passStudentMapper">
+    <resultMap type="com.example.demo.domain.student" id="passStudent">
+        <id column="id" property="id"/>
+        <result column="studentname" property="studentname"/>
+        <result column="sex" property="sex"/>
+        <result column="origin" property="origin"/>
+        <result column="admissionschool" property="admissionschool"/>
+        <result column="subjectcategory" property="subjectcategory"/>
+        <result column="achievement" property="achievement"/>
+        <result column="chinese" property="chinese"/>
+        <result column="maths" property="maths"/>
+        <result column="engllish" property="engllish"/>
+        <result column="used" property="used"/>
+        <association property="dept" javaType="com.example.demo.domain.dept">
+            <id column="deptid" property="deptid"/>
+            <result column="deptName" property="deptName"/>
+            <result column="subjectCategory" property="subjectCategory"/>
+        </association>
+    </resultMap>
+	<!-- id名字必须要与mapper接口的对应方法名一致-->
+	<select id="passstudent" resultMap="passStudent" parameterType="Integer">
+		select  s.*,d.* from  student s
+join dept d on
+s.deptid = d.deptid
+where s.achievement >=#{achievement} and s.chinese >=${chinese}  and s.maths >=${maths} and s.engllish >=${english}
+group by d.subjectCategory,s.id
+order by s.achievement desc,s.chinese desc,s.maths desc limit ${total};
+	</select>
+</mapper>

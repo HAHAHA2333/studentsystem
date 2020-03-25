@@ -29,6 +29,7 @@
         <th>英语成绩</th>
         <th>系别名称</th>
         <th>专业</th>
+        <th>是否录取</th>
     </tr>
     </thead>
     <tbody>
@@ -42,6 +43,12 @@
         <td th:text="${student.engllish}">engllish</td>
         <td th:text="${student.dept.deptName}">deptName</td>
         <td th:text="${student.dept.subjectCategory}">subjectCategory</td>
+        <th:block th:if="${student.used}==1">
+        <td> 已录取</td>
+    </th:block>
+        <th:block th:if="${student.used}==0">
+        <td> 未录取</td>
+    </th:block>
     </tr>
     </tbody>
 </table>

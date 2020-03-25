@@ -1,16 +1,17 @@
 package com.example.demo.domain;
 
 public class dept {
-    private int id;
+    private int deptid;
     private  String deptName;
     private  String  subjectCategory;
 
-    public int getId() {
-        return id;
+
+    public int getDeptid() {
+        return deptid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDeptid(int deptid) {
+        this.deptid = deptid;
     }
 
     public String getDeptName() {
