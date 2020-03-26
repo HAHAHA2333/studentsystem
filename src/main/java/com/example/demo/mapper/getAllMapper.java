@@ -17,5 +17,5 @@ public interface getAllMapper {
     public abstract  List<student> getstu();
 
     //取消删除
-    public  abstract int del(String studentName);
+    public  abstract int del(@Param("studentName") String studentName,@Param("id") String id);
 }

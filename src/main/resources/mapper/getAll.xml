@@ -15,7 +15,7 @@
 		<result column="engllish" property="engllish"/>
 		<result column="used" property="used"/>
 		<association property="dept" javaType="com.example.demo.domain.dept">
-			<id column="id" property="deptid"/>
+			<id column="deptid" property="deptid"/>
 			<result column="deptName" property="deptName"/>
 			<result column="subjectCategory" property="subjectCategory"/>
 		</association>
@@ -33,25 +33,26 @@ order by
 	<select id="queryBy" parameterType="Integer"  resultMap="queryStudent">
 select  s.*,d.* from  student s
 join dept d on
-s.id = d.deptid
+s.deptid = d.deptid
 where s.achievement >=#{achievement} and s.chinese >=#{chinese}  and s.maths >=#{maths} and s.engllish >=#{english}
 order by s.achievement desc,s.chinese desc,s.maths desc
 	</select>
+
 <!--查询所有已录取的学生-->
 	<select id="getstu" resultMap="queryStudent">
-select  s.*,d.* from  student s
-join dept d on
-s.id = d.deptid
-where used=1
-order by
-s.achievement desc,
-s.chinese desc,
-s.maths desc
+		select  s.*,d.* from  student s
+		join dept d on
+		s.deptid = d.deptid
+		where used = 1
+		order by
+		s.achievement desc,
+		s.chinese desc,
+		s.maths desc
 	</select>
 
 	<!--取消录取(软删除)-->
 	<update id="del" parameterType="String">
-		update student set used =0 where studentName = #{studentName}
+		update student set used =0 where studentName = #{studentName} AND id=#{id}
 	</update>
 
 

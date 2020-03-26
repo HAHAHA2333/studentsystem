@@ -30,4 +30,9 @@
         update
  student set used='1' where id=#{id};
     </update>
+
+    <update id="del" parameterType="String">
+        update admissionlist set used =0 WHERE studentNo = #{id};
+    </update>
+
 </mapper>

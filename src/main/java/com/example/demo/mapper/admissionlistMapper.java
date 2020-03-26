@@ -18,4 +18,7 @@ public interface admissionlistMapper {
      int updateStudent(List<student> list);
      //更新已被随机录取的学生的used
      int updateRandomStudent(int id);
+     //软删除录取表
+     int del(String id);
+
 }

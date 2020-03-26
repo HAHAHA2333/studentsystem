@@ -51,8 +51,8 @@ public class getAllStudentImpl implements getAllStudent {
     }
 
     @Override
-    public int del(String studentName) {
-        int del = getallmapper.del(studentName);
+    public int del(String studentName,String id) {
+        int del = getallmapper.del(studentName,id);
         return del;
     }
 
