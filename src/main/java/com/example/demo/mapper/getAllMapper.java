@@ -15,4 +15,7 @@ public interface getAllMapper {
 
     //查询已录取名单
     public abstract  List<student> getstu();
+
+    //取消删除
+    public  abstract int del(String studentName);
 }

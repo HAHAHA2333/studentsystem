@@ -8,7 +8,6 @@
     <!--<link  href="../static/asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.css}" rel="stylesheet">
     <script  th:src="@{/webjars/jquery/3.0.0/jquery.js}" ></script>
     <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.js}" ></script>-->
-
 </head>
 
 <body>
@@ -30,6 +29,7 @@
             <th>系别名称</th>
             <th>专业</th>
             <th>是否录取</th>
+            <th>是否删除</th>
         </tr>
         </thead>
         <tbody>
@@ -49,6 +49,7 @@
             <th:block th:if="${student.used}==0">
                 <td> 未录取</td>
             </th:block>
+            <td><a th:href="@{/del?studentname=} + ${student.studentname}+'&pageNum='+ ${all.pageNum}" onclick= "return confirm('是否取消录取');">删除</a></td>
         </tr>
         </tbody>
     </table>
@@ -96,3 +97,4 @@
 </nav>
 </body>
 </html>
+

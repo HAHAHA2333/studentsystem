@@ -28,7 +28,7 @@ public class getAllStudentImpl implements getAllStudent {
         return pageInfo;
     }
 
-    //导出excel用
+    //导出excel用(所有报考学生)
     @Override
     public List<student> getAll() {
         List<student> getall = getallmapper.getall();
@@ -43,10 +43,17 @@ public class getAllStudentImpl implements getAllStudent {
         return pageInfo;
     }
 
+    //导出excel用(所有已录取学生)
     @Override
     public List<student> getstu() {
         List<student> getstu = getallmapper.getstu();
         return getstu;
+    }
+
+    @Override
+    public int del(String studentName) {
+        int del = getallmapper.del(studentName);
+        return del;
     }
 
 

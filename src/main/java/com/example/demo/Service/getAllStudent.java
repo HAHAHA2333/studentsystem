@@ -12,5 +12,6 @@ public interface getAllStudent {
     List<student> getAll();//导出excel用，不使用分页
     PageInfo<student> getstu(int pageNum,int pageSize);//查询已录取学生
     List<student> getstu();
+    int del(String studentName);//取消录取
 
 }

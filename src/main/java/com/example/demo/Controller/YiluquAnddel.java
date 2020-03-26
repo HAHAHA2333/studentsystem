@@ -23,4 +23,14 @@ public class YiluquAnddel {
         return  mav;
     }
 
+    //取消录取的学生
+    @GetMapping("/del")
+    public String del(String studentname,@RequestParam(defaultValue = "1",value = "pageNum") int pageNum){
+        System.out.println(studentname+"xxxxx"+pageNum);
+        int del = getallstudent.del(studentname);
+        if(del>0){
+            System.out.println("(软)删除成功");
+        }
+        return  "redirect:/yiluqu?pageNum="+pageNum;
+    }
 }

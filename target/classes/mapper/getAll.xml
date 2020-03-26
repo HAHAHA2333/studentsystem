@@ -37,7 +37,7 @@ s.id = d.deptid
 where s.achievement >=#{achievement} and s.chinese >=#{chinese}  and s.maths >=#{maths} and s.engllish >=#{english}
 order by s.achievement desc,s.chinese desc,s.maths desc
 	</select>
-
+<!--查询所有已录取的学生-->
 	<select id="getstu" resultMap="queryStudent">
 select  s.*,d.* from  student s
 join dept d on
@@ -48,6 +48,11 @@ s.achievement desc,
 s.chinese desc,
 s.maths desc
 	</select>
+
+	<!--取消录取(软删除)-->
+	<update id="del" parameterType="String">
+		update student set used =0 where studentName = #{studentName}
+	</update>
 
 
 </mapper>
