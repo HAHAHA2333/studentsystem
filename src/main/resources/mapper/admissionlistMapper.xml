@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间必须和相对应的mapper接口路径相对应-->
+<mapper namespace="com.example.demo.mapper.admissionlistMapper">
+<insert id="insertStudent">
+    insert into admissionlist(studentNo,deptNo,used,addmissionYear)
+ value<if test="list !=null"></if>
+    <foreach collection="list" index="index" item="l"  separator=",">
+        (${l.id},${l.dept.deptid},1,(select date_format(now(),'%Y')))
+    </foreach>
+</insert>
+    <select id="countEveryDeptMember" resultType="Integer" parameterType="String">
+		select count(id) from admissionlist where
+ deptNo=(select id from dept where subjectCategory=#{subjectCategory}
+);
+	</select>
+    <insert id="randomInsertstudent" parameterType="Integer" >
+        insert into admissionlist(studentNo,used,deptNo,addmissionYear)
+        value
+        (#{id},1,#{deptid},(select date_format(now(),'%Y')));
+
+    </insert>
+    <update id="updateStudent" parameterType="java.util.List" >
+        <foreach collection="list" item="item">
+            update
+            student set used='1' where id=#{item.id};
+        </foreach>
+    </update>
+    <update id="updateRandomStudent" parameterType="Integer">
+        update
+ student set used='1' where id=#{id};
+    </update>
+</mapper>

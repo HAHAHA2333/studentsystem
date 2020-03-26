@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setStander</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.css">
+    <link th:href="@{../css/query.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="head">
+
+    <img src="" th:src="@{/images/logo.jpg}" style="height: 100px;width: 100px; margin: 0; padding: 0;float: left">
+    <h3 class="tittle">太原师范学院高考录取系统</h3>
+    <div style="margin-right: 10px;padding-right: 10px;float: right;"><a class="tittle" th:href="@{/index/getall}" style="float: right;">查询所有学生   </a></div>
+    <div style="margin-right: 10px;float: right"><a class="tittle" th:href="@{/setStander}"  >设置分数表准并录取</a></div>
+</div>
+<div style="background-color: aliceblue">
+<table class="table table-condensed">
+<thead>
+<tr>
+    <th>系别名称</th>
+    <th>专业名称</th>
+</tr>
+</thead>
+<tbody>
+<tr  th:each="d : ${dept.list}">
+    <td th:text="${d.deptName}">name</td>
+    <td th:text="${d.subjectCategory}">name</td>
+</tr>
+</tbody>
+</table></div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+        <li class="page-item "><a class="page-link" th:href="@{/setStander}">首页</a></li>
+        <th:block th:if="${dept.pageNum==1}">
+            <li class="page-item "><a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a></li>
+        </th:block>
+        <th:block th:if="${dept.pageNum>1}">
+            <li class="page-item "> <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/setStander(pageNum=${dept.pageNum-1})}">
+                <span class="">上一页</span></a></li>
+        </th:block>
+        </li>
+        <th:block th:if="${dept.pageNum==dept.pages}">
+            <li class="page-item">
+                <a class="page-link" href="#">下一页</a>
+            </li>
+        </th:block>
+        <th:block th:if="${dept.pageNum<dept.pages}">
+            <li class="page-item">
+                <a class="page-link"  tabindex="-1" aria-disabled="true" th:href="@{/setStander(pageNum=${dept.pageNum+1})}">
+                    下一页
+                </a></li>
+        </th:block>
+
+        <li class="page-item">
+            <a class="page-link"
+               th:href="@{/setStander(pageNum=${dept.pages})}">
+                <!--  <li><a href="/getall(pageNum=?${pageInfo.nextPage}:${pageInfo.pages})">下一页</a></li>-->
+                <span class="">尾页</span>
+
+            </a></li>
+
+    </ul>
+</nav>
+<form action="standerMessage" method="post" onsubmit="return check()">
+    <div style="margin: auto">
+    <div style="background-color: aliceblue;width: 30%;height: 300px;margin-left: 35%" >
+            <label >成绩标准</label>
+            <input type="text" class="form-control" id="achievement" name="achievement" placeholder="不输入则默认为150分" aria-describedby="emailHelp">
+ <label>语文成绩标准</label>
+            <input type="text" class="form-control" id="chinese" placeholder="不输入则默认为50分" name="chinese">
+<label >数学成绩标准</label>
+            <input type="text" class="form-control" id="maths" placeholder="不输入则默认为50分" name="maths">
+            <label >英语成绩标准</label>
+            <input type="text" class="form-control" id="english" placeholder="不输入则默认为50分" name="english">
+    </div>
+    </div>
+    <div style="width: 50%;margin-left: 20%">
+        <div style="width: 400px;margin-left:30%" class="input-group flex-nowrap">
+           <textarea class="form-control" rows="10" cols="30" name="standerMessage" placeholder="请输入系别占比,注意输入格式，格式为xx，占比(0.x)，xx，(0.x)" id="standerMessage"></textarea>
+        </div>
+        <div style="width: 400px;margin-left:35%">
+          <input type="text" placeholder="计划录取总人数,最少50,默认为200人" style="width:70%;"  id="total" name="total">
+            <button type="submit" class="btn btn-success">录取</button>
+        </div>
+
+    </div>
+
+    </form>
+
+</body>
+<script type="text/javascript">
+    function check() {
+        var achievement = document.getElementById("achievement").value;
+        var chinese = document.getElementById("chinese").value;
+        var maths = document.getElementById("maths").value;
+        var english = document.getElementById("english").value;
+        var total = document.getElementById("total").value;
+        console.log("dsadasd"+achievement);
+        if(achievement=="" || achievement>300 || chinese=="" || chinese>100 || maths=="" || maths>100 || english=="" || english>100){
+            console.log("请注意参数值范围"+achievement+chinese+maths+english);
+            alert("输入有误，请注意参数范围");            return false;
+        }
+        if(total<50){
+            alert("录取人数最少为50人");            return false;
+        }
+    }
+
+</script>
+</html>

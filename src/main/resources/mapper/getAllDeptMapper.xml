@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间必须和相对应的mapper接口路径相对应-->
+<mapper namespace="com.example.demo.mapper.getAllDeptMapper">
+	<!-- id名字必须要与mapper接口的对应方法名一致-->
+	<select id="countalldeptmapper" resultType="Integer">
+		select count(*) from dept
+	</select>
+	<select id="getalldeptmapper" resultType="com.example.demo.domain.dept">
+		select * from dept
+	</select>
+	<select id="selectDeptId" resultType="com.example.demo.domain.dept" parameterType="String">
+		select deptid from dept where subjectCategory=#{subjectCategory}
+	</select>
+
+</mapper>
