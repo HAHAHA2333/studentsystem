@@ -20,5 +20,6 @@ public interface admissionlistMapper {
      int updateRandomStudent(int id);
      //软删除录取表
      int del(String id);
+     int update(@Param("studentNo") String  studentNo,@Param("deptNo") String deptNo);
 
 }

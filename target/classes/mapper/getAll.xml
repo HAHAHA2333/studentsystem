@@ -55,5 +55,8 @@ order by s.achievement desc,s.chinese desc,s.maths desc
 		update student set used =0 where studentName = #{studentName} AND id=#{id}
 	</update>
 
-
+	<!--跟新录取信息-->
+	<update id="update" parameterType="String">
+		update student set deptid=#{deptid} where studentName = #{studentName} AND id=#{id}
+	</update>
 </mapper>

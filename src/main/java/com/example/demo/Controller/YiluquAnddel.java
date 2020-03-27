@@ -1,14 +1,21 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Service.admissionlistService;
+import com.example.demo.Service.getAllDept;
 import com.example.demo.Service.getAllStudent;
+import com.example.demo.domain.dept;
 import com.example.demo.domain.student;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class YiluquAnddel {
@@ -17,6 +24,8 @@ public class YiluquAnddel {
     getAllStudent getallstudent;
     @Autowired
     admissionlistService admissionlistservice;
+    @Autowired
+    getAllDept depts;
 
     @GetMapping("/yiluqu")//查询已录取学生
     public ModelAndView Getyiluqu(@RequestParam(defaultValue = "1",value = "pageNum") int pageNum){
@@ -39,4 +48,36 @@ public class YiluquAnddel {
         System.out.println(pageNum+"-------------");
         return  "redirect:/yiluqu?pageNum="+pageNum;
     }
+    //更新考生信息
+    @GetMapping("/updateView")
+    public String updateView(Map<String,Object> map,student stu){
+        List<dept> depts1 = depts.getalldept();
+        map.put("depts",depts1);
+//        for(dept d :depts1){
+//            System.out.println(d.getDeptName());
+//        }
+//        System.out.println(stu.getId());
+//        System.out.println(stu.getStudentname());
+        String s = stu.getId().toString();
+        map.put("studentname",stu.getStudentname());
+        map.put("studentid",stu.getId());
+
+        return "update";
+    }
+    //更新操作
+    @PostMapping("/update")
+    public String update(String id,String studentname ,String deptid){
+        //修改学生表
+        System.out.println(id+"======="+studentname+"====="+deptid);
+        int update = getallstudent.update(studentname,id,deptid);
+        System.out.println(update);
+        //修改录取表
+        int update2 = admissionlistservice.update(id, deptid);
+        if(update>0 &&update2>0 ){
+            System.out.println("success");
+        }
+        return "redirect:/yiluqu";
+    }
+
+
 }

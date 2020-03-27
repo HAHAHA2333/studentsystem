@@ -19,6 +19,11 @@ public class getAllDeptImpl implements getAllDept {
         List<dept> deptList = getallDeptmapper.getalldeptmapper();
         PageInfo<dept> pageInfo = new PageInfo<dept>(deptList);
         return pageInfo;
-
     }
+    //获取所有
+    public List<dept> getalldept(){
+        List<dept> depts = getallDeptmapper.getalldeptmapper();
+        return depts;
+    }
+
 }

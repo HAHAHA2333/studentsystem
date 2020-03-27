@@ -15,4 +15,10 @@ public class admissionlistserviceImpl implements admissionlistService {
         int del = admissionlistmapper.del(id);
         return del;
     }
+
+    @Override
+    public int update(String studentNo, String deptNo) {
+        int update = admissionlistmapper.update(studentNo,deptNo);
+        return update;
+    }
 }
