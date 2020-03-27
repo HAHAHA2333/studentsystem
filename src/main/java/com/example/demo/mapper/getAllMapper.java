@@ -20,6 +20,6 @@ public interface getAllMapper {
     public  abstract int del(@Param("studentName") String studentName,@Param("id") String id);
 
     //更新
-    public abstract  int update(@Param("studentName") String studentName,@Param("id") String id,@Param("deptid") String deptid);
+    public abstract  int update(student stu);
 
 }

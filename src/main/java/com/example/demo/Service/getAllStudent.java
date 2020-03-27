@@ -13,7 +13,7 @@ public interface getAllStudent {
     PageInfo<student> getstu(int pageNum,int pageSize);//查询已录取学生
     List<student> getstu();
     int del(String studentName,String id);//取消录取
-    int update(String studentName,String id,String deptid);
+    int update(student stu);
 
 
 }

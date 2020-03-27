@@ -53,30 +53,28 @@ public class YiluquAnddel {
     public String updateView(Map<String,Object> map,student stu){
         List<dept> depts1 = depts.getalldept();
         map.put("depts",depts1);
-//        for(dept d :depts1){
-//            System.out.println(d.getDeptName());
-//        }
-//        System.out.println(stu.getId());
-//        System.out.println(stu.getStudentname());
-        String s = stu.getId().toString();
-        map.put("studentname",stu.getStudentname());
-        map.put("studentid",stu.getId());
+
+        map.put("stu",stu);
+
 
         return "update";
     }
     //更新操作
     @PostMapping("/update")
-    public String update(String id,String studentname ,String deptid){
+    public String update(student stu){
         //修改学生表
-        System.out.println(id+"======="+studentname+"====="+deptid);
-        int update = getallstudent.update(studentname,id,deptid);
+        System.out.println(stu.getId()+"=="+stu.getMaths()+"---"+stu.getChinese());
+        stu.setAchievement(stu.getChinese()+stu.getMaths()+stu.getEngllish());
+        int update = getallstudent.update(stu);
         System.out.println(update);
-        //修改录取表
-        int update2 = admissionlistservice.update(id, deptid);
+      //  修改录取表
+
+
+        int update2 = admissionlistservice.update(stu.getId() , stu.getDept().getDeptid());
         if(update>0 &&update2>0 ){
             System.out.println("success");
         }
-        return "redirect:/yiluqu";
+          return "redirect:/yiluqu";
     }
 
 

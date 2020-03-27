@@ -56,7 +56,7 @@ order by s.achievement desc,s.chinese desc,s.maths desc
 	</update>
 
 	<!--跟新录取信息-->
-	<update id="update" parameterType="String">
-		update student set deptid=#{deptid} where studentName = #{studentName} AND id=#{id}
+	<update id="update" parameterType="com.example.demo.domain.student">
+		update student set deptid=#{dept.deptid}, origin=#{origin} ,chinese=#{chinese},maths=#{maths},engllish=#{engllish},achievement=#{achievement} where studentName = #{studentname} AND id=#{id}
 	</update>
 </mapper>

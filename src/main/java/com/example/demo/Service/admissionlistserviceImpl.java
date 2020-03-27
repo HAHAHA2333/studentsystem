@@ -17,7 +17,7 @@ public class admissionlistserviceImpl implements admissionlistService {
     }
 
     @Override
-    public int update(String studentNo, String deptNo) {
+    public int update(int studentNo, int deptNo) {
         int update = admissionlistmapper.update(studentNo,deptNo);
         return update;
     }

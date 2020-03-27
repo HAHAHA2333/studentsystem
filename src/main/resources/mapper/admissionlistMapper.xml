@@ -35,7 +35,7 @@
         DELETE FROM admissionlist  WHERE studentNo = #{id};
     </delete>
 
-    <update id="update" parameterType="String">
+    <update id="update" parameterType="int">
         update admissionlist set deptNo=#{deptNo} where studentNo=#{studentNo}
     </update>
 

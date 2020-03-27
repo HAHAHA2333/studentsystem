@@ -57,8 +57,8 @@ public class getAllStudentImpl implements getAllStudent {
     }
 
     @Override
-    public int update(String studentName, String id, String deptid) {
-        int update = getallmapper.update(studentName, id, deptid);
+    public int update(student stu) {
+        int update = getallmapper.update(stu);
         return update;
     }
 
